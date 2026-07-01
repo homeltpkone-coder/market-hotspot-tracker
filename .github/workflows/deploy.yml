@@ -28,7 +28,9 @@ jobs:
       - name: Generate market snapshot
         run: |
           mkdir -p data
-          node <<'NODE'
+          node --input-type=module <<'NODE'
+          import { writeFile } from "node:fs/promises";
+
           const headers = {
             "User-Agent": "Mozilla/5.0",
             "Referer": "https://quote.eastmoney.com/"
@@ -59,7 +61,10 @@ jobs:
           const idxUrl = "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=1.000001,0.399001,0.399006,100.NDX,100.SPX,100.DJI&fields=f12,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18";
           const stkUrl = "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,105.AMD,105.MSFT,105.AAPL,105.AVGO,105.MU,105.TSLA,105.GOOGL,105.META&fields=f12,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18";
 
-          const [idx, stk] = await Promise.all([getJson(idxUrl), getJson(stkUrl)]);
+          const [idx, stk] = await Promise.all([
+            getJson(idxUrl),
+            getJson(stkUrl)
+          ]);
 
           const indices = (idx.data?.diff || []).map(item);
           const tech = (stk.data?.diff || []).map(item);
@@ -92,7 +97,7 @@ jobs:
             themes
           };
 
-          await require("node:fs/promises").writeFile(
+          await writeFile(
             "data/snapshot.json",
             JSON.stringify(snapshot, null, 2),
             "utf8"
