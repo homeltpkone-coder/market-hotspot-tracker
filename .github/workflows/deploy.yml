@@ -1,0 +1,119 @@
+name: Deploy Market Hotspot Tracker
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate market snapshot
+        run: |
+          mkdir -p data
+          node <<'NODE'
+          const headers = {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://quote.eastmoney.com/"
+          };
+
+          async function getJson(url) {
+            const r = await fetch(url, { headers });
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+          }
+
+          function item(x) {
+            return {
+              code: x.f12,
+              name: x.f14,
+              price: x.f2,
+              pct: x.f3,
+              change: x.f4,
+              volume: x.f5,
+              amount: x.f6,
+              high: x.f15,
+              low: x.f16,
+              open: x.f17,
+              prev: x.f18
+            };
+          }
+
+          const idxUrl = "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=1.000001,0.399001,0.399006,100.NDX,100.SPX,100.DJI&fields=f12,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18";
+          const stkUrl = "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,105.AMD,105.MSFT,105.AAPL,105.AVGO,105.MU,105.TSLA,105.GOOGL,105.META&fields=f12,f14,f2,f3,f4,f5,f6,f15,f16,f17,f18";
+
+          const [idx, stk] = await Promise.all([getJson(idxUrl), getJson(stkUrl)]);
+
+          const indices = (idx.data?.diff || []).map(item);
+          const tech = (stk.data?.diff || []).map(item);
+
+          const by = Object.fromEntries(tech.map(i => [i.code, i]));
+          const g = c => Number(by[c]?.pct || 0);
+          const semi = (g("NVDA") + g("AMD") + g("AVGO") + g("MU")) / 4;
+          const mega = (g("MSFT") + g("AAPL") + g("GOOGL") + g("META")) / 4;
+          const cyb = Number(indices.find(i => i.code === "399006")?.pct || 0);
+          const cut = cyb < -1 ? 4 : 0;
+
+          const themes = [
+            ["AI 算力", 68 + semi * 4 - cut, semi > 2 ? "强" : "中", semi > 2 ? "升温" : "观察", "GPU、服务器、光模块、液冷、电源、数据中心"],
+            ["半导体/HBM/先进封装", 62 + semi * 4 - cut, semi > 1 ? "中强" : "中", semi > 1 ? "升温" : "观察", "HBM、先进封装、设备、材料、存储"],
+            ["端侧 AI / 消费电子", 56 + mega * 5 - cut, mega > 1 ? "中强" : "中", mega > 1 ? "升温" : "分化", "AI 手机、AI PC、端侧芯片、存储、模组"],
+            ["数据中心电力/液冷", 60 - cut, "中", semi > 2 ? "升温" : "观察", "配电、电源、储能、液冷、IDC"],
+            ["机器人", 58 - cut, "中", "观察", "减速器、丝杠、传感器、控制器、本体"]
+          ].map(t => ({
+            name: t[0],
+            score: Math.round(t[1]),
+            capital: t[2],
+            heat: t[3],
+            chain: t[4]
+          })).sort((a, b) => b.score - a.score);
+
+          const snapshot = {
+            asOf: new Date().toISOString(),
+            indices,
+            tech,
+            themes
+          };
+
+          await require("node:fs/promises").writeFile(
+            "data/snapshot.json",
+            JSON.stringify(snapshot, null, 2),
+            "utf8"
+          );
+          NODE
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/snapshot.json
+          git commit -m "Update market snapshot" || echo "No changes"
+          git push
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
