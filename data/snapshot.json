@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-08-24T13:10:08.015Z",
+  "asOf": "2026-08-24T14:00:23.845Z",
   "indices": [
     {
       "code": "000001",
@@ -43,163 +43,156 @@
     {
       "code": "NDX",
       "name": "纳斯达克",
-      "price": 26180.45,
-      "pct": 0.43,
-      "change": 113.28,
-      "volume": 6318725120,
+      "price": 25975.03,
+      "pct": -0.78,
+      "change": -205.42,
+      "volume": 1423886048,
       "amount": 0,
-      "high": 26269.85,
-      "low": 26049.3,
-      "open": 26198.83,
-      "prev": 26067.17
+      "high": 26065.32,
+      "low": 25910.82,
+      "open": 26065.32,
+      "prev": 26180.45
     },
     {
       "code": "SPX",
       "name": "标普500",
-      "price": 7674.37,
-      "pct": 0.43,
-      "change": 33.21,
-      "volume": 2730784992,
+      "price": 7652.37,
+      "pct": -0.29,
+      "change": -22,
+      "volume": 322271648,
       "amount": 0,
-      "high": 7697.11,
-      "low": 7660.06,
-      "open": 7665.68,
-      "prev": 7641.16
+      "high": 7663.46,
+      "low": 7638.17,
+      "open": 7663.38,
+      "prev": 7674.37
     }
   ],
   "tech": [
     {
       "code": "NVDA",
       "name": "英伟达",
-      "price": 214.72,
-      "pct": -0.98,
-      "change": -2.13,
-      "volume": 98869300,
-      "amount": 21337769216,
-      "high": 218.74,
-      "low": 214.5,
-      "open": 218.42,
-      "prev": 216.85
+      "price": 209.539,
+      "pct": -2.41,
+      "change": -5.182,
+      "volume": 23091486,
+      "amount": 4889852416,
+      "high": 215.59,
+      "low": 209.02,
+      "open": 215.38,
+      "prev": 214.72
     },
     {
       "code": "AMD",
       "name": "超威半导体",
-      "price": 473.25,
-      "pct": 0.81,
-      "change": 3.795,
-      "volume": 14343885,
-      "amount": 6751706368,
-      "high": 477.36,
-      "low": 462.111,
-      "open": 476.495,
-      "prev": 469.455
+      "price": 454.05,
+      "pct": -4.06,
+      "change": -19.2,
+      "volume": 3102504,
+      "amount": 1429029840,
+      "high": 468.14,
+      "low": 452.55,
+      "open": 467.975,
+      "prev": 473.25
     },
     {
       "code": "MSFT",
       "name": "微软",
-      "price": 483.24,
-      "pct": 0.43,
-      "change": 2.09,
-      "volume": 22510774,
-      "amount": 10873135616,
-      "high": 486.36,
-      "low": 478.53,
-      "open": 479.88,
-      "prev": 481.15
+      "price": 487.313,
+      "pct": 0.84,
+      "change": 4.073,
+      "volume": 1833020,
+      "amount": 888110192,
+      "high": 487.405,
+      "low": 481.86,
+      "open": 483.205,
+      "prev": 483.24
     },
     {
       "code": "AAPL",
       "name": "苹果",
-      "price": 309.35,
-      "pct": -0.63,
-      "change": -1.95,
-      "volume": 46876815,
-      "amount": 14517834752,
-      "high": 312.38,
-      "low": 307.01,
-      "open": 312.05,
-      "prev": 311.3
+      "price": 312.03,
+      "pct": 0.87,
+      "change": 2.68,
+      "volume": 4082812,
+      "amount": 1270947296,
+      "high": 312.34,
+      "low": 309.97,
+      "open": 311.47,
+      "prev": 309.35
     },
     {
       "code": "AVGO",
       "name": "博通",
-      "price": 368.45,
-      "pct": 1.21,
-      "change": 4.42,
-      "volume": 19037140,
-      "amount": 7016548352,
-      "high": 375.13,
-      "low": 365.05,
-      "open": 370.69,
-      "prev": 364.03
+      "price": 362.93,
+      "pct": -1.5,
+      "change": -5.52,
+      "volume": 2313067,
+      "amount": 840392288,
+      "high": 366.12,
+      "low": 360.585,
+      "open": 364.652,
+      "prev": 368.45
     },
     {
       "code": "MU",
       "name": "美光科技",
-      "price": 966.78,
-      "pct": -0.77,
-      "change": -7.55,
-      "volume": 21823443,
-      "amount": 21164535808,
-      "high": 989.96,
-      "low": 958.26,
-      "open": 989.675,
-      "prev": 974.33
+      "price": 896.19,
+      "pct": -7.3,
+      "change": -70.59,
+      "volume": 7039681,
+      "amount": 6468191488,
+      "high": 936.45,
+      "low": 894.01,
+      "open": 934.704,
+      "prev": 966.78
     },
     {
       "code": "TSLA",
       "name": "特斯拉",
-      "price": 362.86,
-      "pct": 5.14,
-      "change": 17.73,
-      "volume": 59223958,
-      "amount": 21347238400,
-      "high": 366.5,
-      "low": 346.9,
-      "open": 349.88,
-      "prev": 345.13
+      "price": 353.78,
+      "pct": -2.5,
+      "change": -9.08,
+      "volume": 7101410,
+      "amount": 2526821440,
+      "high": 363.24,
+      "low": 351.58,
+      "open": 361.75,
+      "prev": 362.86
     },
     {
       "code": "GOOGL",
       "name": "谷歌-A",
-      "price": 344.82,
-      "pct": 1.22,
-      "change": 4.15,
-      "volume": 20849776,
-      "amount": 7175048704,
-      "high": 346.2,
-      "low": 340.4,
-      "open": 342.575,
-      "prev": 340.67
+      "price": 348.4,
+      "pct": 1.04,
+      "change": 3.58,
+      "volume": 3165309,
+      "amount": 1095472448,
+      "high": 348.499,
+      "low": 342.5,
+      "open": 343.615,
+      "prev": 344.82
     },
     {
       "code": "META",
       "name": "Meta Platforms Inc-A",
-      "price": 549.9,
-      "pct": 0.75,
-      "change": 4.07,
-      "volume": 13848015,
-      "amount": 7614326016,
-      "high": 553.873,
-      "low": 543.23,
-      "open": 546.885,
-      "prev": 545.83
+      "price": 552.82,
+      "pct": 0.53,
+      "change": 2.92,
+      "volume": 1761257,
+      "amount": 969179536,
+      "high": 553.38,
+      "low": 546.3,
+      "open": 550.2,
+      "prev": 549.9
     }
   ],
   "themes": [
     {
-      "name": "AI 算力",
-      "score": 64,
+      "name": "端侧 AI / 消费电子",
+      "score": 56,
       "capital": "中",
-      "heat": "观察",
-      "chain": "GPU、服务器、光模块、液冷、电源、数据中心"
-    },
-    {
-      "name": "半导体/HBM/先进封装",
-      "score": 58,
-      "capital": "中",
-      "heat": "观察",
-      "chain": "HBM、先进封装、设备、材料、存储"
+      "heat": "分化",
+      "chain": "AI 手机、AI PC、端侧芯片、存储、模组"
     },
     {
       "name": "数据中心电力/液冷",
@@ -209,18 +202,25 @@
       "chain": "配电、电源、储能、液冷、IDC"
     },
     {
-      "name": "端侧 AI / 消费电子",
-      "score": 54,
-      "capital": "中",
-      "heat": "分化",
-      "chain": "AI 手机、AI PC、端侧芯片、存储、模组"
-    },
-    {
       "name": "机器人",
       "score": 54,
       "capital": "中",
       "heat": "观察",
       "chain": "减速器、丝杠、传感器、控制器、本体"
+    },
+    {
+      "name": "AI 算力",
+      "score": 49,
+      "capital": "中",
+      "heat": "观察",
+      "chain": "GPU、服务器、光模块、液冷、电源、数据中心"
+    },
+    {
+      "name": "半导体/HBM/先进封装",
+      "score": 43,
+      "capital": "中",
+      "heat": "观察",
+      "chain": "HBM、先进封装、设备、材料、存储"
     }
   ]
 }
