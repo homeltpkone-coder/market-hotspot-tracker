@@ -1,43 +1,43 @@
 {
-  "asOf": "2026-10-22T00:52:56.899Z",
+  "asOf": "2026-10-22T10:37:29.042Z",
   "indices": [
     {
       "code": "000001",
       "name": "上证指数",
-      "price": 3712.83,
-      "pct": -0.01,
-      "change": -0.2,
-      "volume": 0,
-      "amount": 0,
-      "high": 0,
-      "low": 0,
-      "open": 0,
+      "price": 3658.03,
+      "pct": -1.48,
+      "change": -55,
+      "volume": 437691963,
+      "amount": 706095648847.8,
+      "high": 3714.48,
+      "low": 3649.86,
+      "open": 3714.48,
       "prev": 3713.03
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "price": 11704.35,
-      "pct": 0,
-      "change": 0,
-      "volume": 0,
-      "amount": 0,
-      "high": 0,
-      "low": 0,
-      "open": 0,
+      "price": 11357.32,
+      "pct": -2.96,
+      "change": -347.03,
+      "volume": 525836834,
+      "amount": 822618050432.5358,
+      "high": 11690.92,
+      "low": 11350.96,
+      "open": 11690.34,
       "prev": 11704.35
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "price": 2694.71,
-      "pct": 0,
-      "change": 0,
-      "volume": 0,
-      "amount": 0,
-      "high": 0,
-      "low": 0,
-      "open": 0,
+      "price": 2576.9,
+      "pct": -4.37,
+      "change": -117.81,
+      "volume": 165224702,
+      "amount": 406179350022.01,
+      "high": 2688.11,
+      "low": 2576.9,
+      "open": 2687.94,
       "prev": 2694.71
     },
     {
@@ -189,35 +189,35 @@
   "themes": [
     {
       "name": "AI 算力",
-      "score": 77,
+      "score": 73,
       "capital": "强",
       "heat": "升温",
       "chain": "GPU、服务器、光模块、液冷、电源、数据中心"
     },
     {
       "name": "半导体/HBM/先进封装",
-      "score": 71,
+      "score": 67,
       "capital": "中强",
       "heat": "升温",
       "chain": "HBM、先进封装、设备、材料、存储"
     },
     {
       "name": "数据中心电力/液冷",
-      "score": 60,
+      "score": 56,
       "capital": "中",
       "heat": "升温",
       "chain": "配电、电源、储能、液冷、IDC"
     },
     {
       "name": "机器人",
-      "score": 58,
+      "score": 54,
       "capital": "中",
       "heat": "观察",
       "chain": "减速器、丝杠、传感器、控制器、本体"
     },
     {
       "name": "端侧 AI / 消费电子",
-      "score": 56,
+      "score": 52,
       "capital": "中",
       "heat": "分化",
       "chain": "AI 手机、AI PC、端侧芯片、存储、模组"
